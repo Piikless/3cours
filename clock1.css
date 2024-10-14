@@ -1,0 +1,115 @@
+/* Стиль для контейнера годинника */
+.clock {
+    width: 200px;
+    height: 200px;
+    background-color: #e6e6e6;
+    border: 3px solid black;
+    position: relative;
+    margin: 50px auto; /* Вирівнювання по центру */
+}
+
+/* Стиль для точок */
+.dot {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border: 2px solid black;
+    border-radius: 50%;
+    position: absolute;
+}
+
+
+/* Позиціювання точок
+.top {
+    top: 10px; /* Відстань від верхнього краю 
+    left: 50%; /* Вирівнювання по центру 
+    margin-left: -10px; /* Центрування точки 
+}
+
+ .left {
+    top: 50%; /* Вирівнювання по центру 
+    left: 10px; /* Відстань від лівого краю 
+    margin-top: -10px; /* Центрування точки 
+} 
+
+.right {
+    top: 50%; /* Вирівнювання по центру 
+    right: 10px; /* Відстань від правого краю 
+    margin-top: -10px; /* Центрування точки 
+} 
+
+ .bottom {
+    bottom: 10px; /* Відстань від нижнього краю 
+    left: 50%; /* Вирівнювання по центру 
+    margin-left: -10px; /* Центрування точки 
+} 
+
+ Годинникова стрілка
+.hour-hand {
+    width: 5px;
+    height: 60px;
+    background-color: black;
+    position: absolute;
+    top: 50px; /* Від верхнього краю 
+    left: 50%; /* Вирівнювання по центру 
+    margin-left: -2.5px; /* Центрування стрілки 
+} 
+
+ /*Хвилинна стрілка
+.minute-hand { 
+    width: 60px;
+    height: 5px;
+    background-color: black;
+    position: absolute;
+    top: 50%; /* Вирівнювання по центру 
+    left: 50%; /* Вирівнювання по центру 
+    margin-top: -2.5px; /* Центрування стрілки 
+}   */
+
+
+/* Позиціювання точок з використанням transform */
+.top {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 10px); /* Центрування точки */
+}
+
+.left {
+    top: 50%;
+    left: 0;
+    transform: translate(10px, -50%); /* Центрування точки */
+}
+
+.right {
+    top: 50%;
+    right: 0;
+    transform: translate(-10px, -50%); /* Центрування точки */
+}
+
+.bottom {
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -10px); /* Центрування точки */
+}
+
+/* Годинникова стрілка */
+.hour-hand {
+    width: 5px;
+    height: 60px;
+    background-color: black;
+    position: absolute;
+    top: 50%; /* Вирівнювання по центру */
+    left: 50%; /* Вирівнювання по центру */
+    transform: translate(-50%, -100%); /* Центрування стрілки */
+}
+
+/* Хвилинна стрілка */
+.minute-hand {
+    width: 60px;
+    height: 5px;
+    background-color: black;
+    position: absolute;
+    top: 50%; /* Вирівнювання по центру */
+    left: 50%; /* Вирівнювання по центру */
+    transform: translate(-100%, -50%); /* Центрування стрілки */
+}

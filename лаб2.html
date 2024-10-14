@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таблиця</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        /* Встановлення кольору для першого та другого рядків */
+        tr:nth-child(1) {
+            background-color: #468f8f; /* Колір для 1-го рядка */
+            color: #F5955D; /* Контрастний колір тексту */
+        }
+
+        tr:nth-child(2) {
+            background-color: #f5f546; /* Колір для 2-го рядка */
+            color: #9C44F5; /* Контрастний колір тексту */
+        }
+
+        /* Ефект при наведенні на рядки */
+        tr:nth-child(1):hover {
+            background-color: #F5955D; /* Зміна на білий */
+            color: #468f8f; /* Текст кольору 1-го рядка */
+        }
+
+        tr:nth-child(2):hover {
+            background-color: #9C44F5; /* Зміна на чорний */
+            color: #f5f546; /* Текст кольору 2-го рядка */
+        }
+    </style>
+</head>
+<body>
+
+    <table>
+        <!-- Перший рядок -->
+        <tr>
+            <td rowspan="2" colspan="2">Ткаченко</td>
+            <td>Олеся</td>
+            <td>Сергіївна</td>
+        </tr>
+        <!-- Другий рядок -->
+        <tr>
+            <td>ІК-23</td>
+            <td>Лаб 2 вар 46</td>
+        </tr>
+        <!-- Третій рядок -->
+        <tr>
+            <td colspan="2"></td>
+            <td></td>
+            <td rowspan="2"></td>
+        </tr>
+        <!-- Четвертий рядок -->
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+</body>
+</html>
