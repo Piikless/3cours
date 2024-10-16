@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float Layout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+        .header {
+            width: 100%;
+            float: left;
+            background-color: #6CA0DC; 
+            padding: 20px;
+            text-align: center;
+        }
+        .top-img {
+            width: 100%;
+            float: left;
+            background-color: #E6B2DB; 
+            padding: 20px;
+            text-align: center;
+        }
+        .main-img {
+            width: 70%;
+            height: 400px;
+            float: left;
+            background-color: #C1E1C1; 
+            padding: 20px;
+            text-align: center;
+        }
+        .side-text {
+            width: 30%;
+            height: 400px;
+            float: left;
+            background-color: #97BC62FF; 
+            padding: 20px;
+            text-align: center;
+        }
+        .clearfix {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Text</h1>
+        </div>
+        <div class="top-img">
+            <p>Img.</p>
+        </div>
+        <div class="main-img">
+            <p>Img.</p>
+        </div>
+        <div class="side-text">
+            <p>Text</p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</body>
+</html>

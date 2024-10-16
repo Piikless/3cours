@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Layout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background-color: #6CA0DC;
+            text-align: center;
+            padding: 20px;
+        }
+        .top-img {
+            background-color: #E6B2DB; 
+            text-align: center;
+            padding: 20px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+        .main-img {
+            flex: 7; 
+            height: 400px;
+            background-color: #C1E1C1; 
+            padding: 20px;
+            text-align: center;
+        }
+        .side-text {
+            flex: 3;
+            height: 400px; 
+            background-color: #97BC62FF; 
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Text</h1>
+        </div>
+        <div class="top-img">
+            <p>Img.</p>
+        </div>
+        <div class="content">
+            <div class="main-img">
+                <p>Img.</p>
+            </div>
+            <div class="side-text">
+                <p>Text</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
