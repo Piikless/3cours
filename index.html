@@ -3,32 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ткаченко О.С., ІК-23</title>
+    <title>Форма перевірки даних</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
- <h2>Ткаченко Олеся Сергіївна</h2>   
-<p>09.06.2005 м. Южноукраїнськ</p>
-<p>Освіта: Южноукраїнська гімназія №1</p>
-<p> КПІ ім. Ігоря Сікорського</p>
-<h3>Мої хобі</h3>
-    <ul>
-        <li>Читання книг</li>
-        <li>Макіяж</li>
-        <li>Танці</li>
-    </ul>
-    <h3>Улюблені книги</h3>
-    <ol>
-        <li>"Зазирни у мої сни" Макса Кідрука</li>
-        <li>"Санаторій" Сари Пірс</li>
-        <li>"Місто дівчат" Елізабет Гілберт</li>
-    </ol>
-    <h3>Найбільш вподобане місто</h3>
-<p>Київ — це місто, яке поєднує старовинну історію з сучасною архітектурою. 
- Столиця України захоплює своїми золотими куполами, мальовничими парками та річкою Дніпро. 
-        Прогулянки на Хрещатику, відвідування Києво-Печерської Лаври та оглядові майданчики на пагорбах відкривають неймовірні види на місто. 
-        Київ має унікальну атмосферу, яка запам'ятовується на все життя.</p>
-        <a href="https://uk.wikipedia.org/wiki/Київ" target="_blank">
-        <img src="kyiv.jpg" alt="Фото Києва" width="600">    
-        </a>
+    <h2>Форма перевірки даних</h2>
+    <form id="dataForm">
+        <label for="pib">ПІБ (ТТТТТТ Т.Т.):</label>
+        <input type="text" id="pib" name="pib" required>
+        <br>
+
+        <label for="variant">Варіант (ЧЧ):</label>
+        <input type="text" id="variant" name="variant" required>
+        <br>
+
+        <label for="group">Група (ТТ-ЧЧ):</label>
+        <input type="text" id="group" name="group" required>
+        <br>
+
+        <label for="phone">Телефон ((ЧЧЧ)-ЧЧЧ-ЧЧ-ЧЧ):</label>
+        <input type="text" id="phone" name="phone" required>
+        <br>
+
+        <label for="idCard">ID-card (ТТ №ЧЧЧЧЧЧ):</label>
+        <input type="text" id="idCard" name="idCard" required>
+        <br>
+
+        <button type="button" onclick="validateForm()">Відправити</button>
+    </form>
 </body>
 </html>
