@@ -1,6 +1,4 @@
-/* styles.css */
-.highlight {
-    background-color: yellow;
-    color: red;
+.error {
+    border: 2px solid red;
+    background-color: #ffe6e6;
 }
-

@@ -1,74 +1,60 @@
-const variantNumber = 46;
-const targetPosition = (variantNumber % 10) + 1;
+function validateForm() {
+    // Отримуємо значення полів форми
+    const pib = document.getElementById('pib');
+    const variant = document.getElementById('variant');
+    const group = document.getElementById('group');
+    const phone = document.getElementById('phone');
+    const idCard = document.getElementById('idCard');
 
-let firstClick = true;
+    // Регулярні вирази для перевірки
+    const pibPattern = /^[А-ЯІЇЄҐ][а-яіїєґ]{1,6} [А-ЯІЇЄҐ]\.[А-ЯІЇЄҐ]\.$/; // ПІБ: ТТТТТТ Т.Т.
+    const variantPattern = /^\d{2}$/; // Варіант: ЧЧ
+    const groupPattern = /^[А-ЯІЇЄҐ]{2}-\d{2}$/; // Група: ТТ-ЧЧ
+    const phonePattern = /^\(\d{3}\)-\d{3}-\d{2}-\d{2}$/; // Телефон: (ЧЧЧ)-ЧЧЧ-ЧЧ-ЧЧ
+    const idCardPattern = /^[А-ЯІЇЄҐ]{2} №\d{6}$/; // ID-card: ТТ №ЧЧЧЧЧЧ
 
-// Функція для зміни кольору елемента
-function changeColor(element, color) {
-    element.style.backgroundColor = color.background;
-    element.style.color = color.text;
-}
+    // Скидаємо стилі помилок
+    pib.classList.remove("error");
+    variant.classList.remove("error");
+    group.classList.remove("error");
+    phone.classList.remove("error");
+    idCard.classList.remove("error");
 
-// Пошук елемента за номером порядку
-function findElementByPosition(position) {
-    const allElements = document.querySelectorAll("body *");
-    if (position - 1 < allElements.length) {
-        return allElements[position - 1];
+    let isValid = true;
+
+    // Перевірка кожного поля
+    if (!pibPattern.test(pib.value)) {
+        pib.classList.add("error");
+        isValid = false;
     }
-    return null;
-}
+    if (!variantPattern.test(variant.value)) {
+        variant.classList.add("error");
+        isValid = false;
+    }
+    if (!groupPattern.test(group.value)) {
+        group.classList.add("error");
+        isValid = false;
+    }
+    if (!phonePattern.test(phone.value)) {
+        phone.classList.add("error");
+        isValid = false;
+    }
+    if (!idCardPattern.test(idCard.value)) {
+        idCard.classList.add("error");
+        isValid = false;
+    }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const targetElement = findElementByPosition(targetPosition);
-
-    if (targetElement) {
-        targetElement.addEventListener("click", () => {
-            if (firstClick) {
-                changeColor(targetElement, { background: "yellow", text: "red" });
-                firstClick = false;
-            } else {
-                document.querySelector("body *").style.backgroundColor = "lightblue";
-                document.querySelector("body *").style.color = "blue";
-            }
-        });
+    // Виведення результатів
+    if (isValid) {
+        const result = `
+            ПІБ: ${pib.value}\n
+            Варіант: ${variant.value}\n
+            Група: ${group.value}\n
+            Телефон: ${phone.value}\n
+            ID-card: ${idCard.value}
+        `;
+        alert("Введена інформація:\n" + result);
     } else {
-        console.error("Елемент з такою позицією не знайдено.");
-    }
-});
-
-// Змінна для збереження оригінального розміру зображення
-let originalSize = 600; // початковий розмір ширини зображення
-
-function addImage() {
-    const img = document.createElement('img');
-    img.src = 'kyiv2.jpg'; // вкажіть шлях до нового зображення
-    img.alt = 'Нове зображення';
-    img.width = 600; // задайте ширину нового зображення
-    document.body.appendChild(img);
-}
-
-function increaseSize() {
-    const image = document.getElementById('kyiv-image');
-    if (image) {
-        originalSize += 50; // збільшуємо на 50 пікселів
-        image.width = originalSize;
+        alert("Будь ласка, перевірте правильність введених даних.");
     }
 }
-
-function decreaseSize() {
-    const image = document.getElementById('kyiv-image');
-    if (image) {
-        originalSize = Math.max(100, originalSize - 50); // зменшуємо на 50 пікселів, але не менше 100
-        image.width = originalSize;
-    }
-}
-
-function removeImage() {
-    const image = document.getElementById('kyiv-image');
-    if (image) {
-        image.parentNode.removeChild(image);
-    }
-}
-
-
-
