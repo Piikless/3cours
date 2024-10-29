@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Подія наведення
             cell.addEventListener('mouseenter', () => {
-                if (cell.textContent == 46) { // Заміна 46 на ваш варіант
+                if (cell.textContent == 46) {
                     cell.style.backgroundColor = getRandomColor();
                 }
             });
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Подія кліка
             cell.addEventListener('click', () => {
                 cell.style.backgroundColor = colorPicker.value;
-                startCell = cell; // Запам'ятовуємо вибрану клітинку
+                startCell = cell; 
             });
 
             // Подія подвійного кліка
