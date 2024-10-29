@@ -3,34 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Форма перевірки даних</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <title>Ткаченко О.С., ІК-23</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <h2>Форма перевірки даних</h2>
-    <form id="dataForm">
-        <label for="pib">ПІБ (ТТТТТТ Т.Т.):</label>
-        <input type="text" id="pib" name="pib" required>
-        <br>
+    <h2 id="heading">Ткаченко Олеся Сергіївна</h2>   
+    <p id="birthplace">09.06.2005 м. Южноукраїнськ</p>
+    <p id="education">Освіта: Южноукраїнська гімназія №1</p>
+    <p id="university">КПІ ім. Ігоря Сікорського</p>
 
-        <label for="variant">Варіант (ЧЧ):</label>
-        <input type="text" id="variant" name="variant" required>
-        <br>
+    <h3>Мої хобі</h3>
+    <ul>
+        <li id="hobby1">Читання книг</li>
+        <li id="hobby2">Макіяж</li>
+        <li id="hobby3">Танці</li>
+    </ul>
 
-        <label for="group">Група (ТТ-ЧЧ):</label>
-        <input type="text" id="group" name="group" required>
-        <br>
+    <h3>Улюблені книги</h3>
+    <ol>
+        <li id="book1">"Зазирни у мої сни" Макса Кідрука</li>
+        <li id="book2">"Санаторій" Сари Пірс</li>
+        <li id="book3">"Місто дівчат" Елізабет Гілберт</li>
+    </ol>
 
-        <label for="phone">Телефон ((ЧЧЧ)-ЧЧЧ-ЧЧ-ЧЧ):</label>
-        <input type="text" id="phone" name="phone" required>
-        <br>
+    <h3>Найбільш вподобане місто</h3>
+    <p id="city-description">Київ — це місто, яке поєднує старовинну історію з сучасною архітектурою...</p>
 
-        <label for="idCard">ID-card (ТТ №ЧЧЧЧЧЧ):</label>
-        <input type="text" id="idCard" name="idCard" required>
-        <br>
+    <a id="imageContainer" href="https://uk.wikipedia.org/wiki/Київ" target="_blank">
+        <img src="kyiv.jpg" id="kyiv-image" alt="Фото Києва" width="600">    
+    </a>
 
-        <button type="button" onclick="validateForm()">Відправити</button>
-    </form>
+    <div id="image-controls">
+        <button onclick="addImage()">Додати зображення</button>
+        <button onclick="increaseSize()">Збільшити зображення</button>
+        <button onclick="decreaseSize()">Зменшити зображення</button>
+        <button onclick="removeImage()">Видалити зображення</button>
+    </div>
+
 </body>
 </html>
