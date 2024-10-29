@@ -1,51 +1,23 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const table = document.getElementById('myTable');
-    const colorPicker = document.getElementById('colorPicker');
-    let startCell = null;
-
-    // Створення таблиці 6x6
-    for (let i = 0; i < 6; i++) {
-        const row = table.insertRow();
-        for (let j = 0; j < 6; j++) {
-            const cell = row.insertCell();
-            cell.textContent = i * 6 + j + 1;
-
-            // Подія наведення
-            cell.addEventListener('mouseenter', () => {
-                if (cell.textContent == 46) {
-                    cell.style.backgroundColor = getRandomColor();
-                }
-            });
-
-            // Подія кліка
-            cell.addEventListener('click', () => {
-                cell.style.backgroundColor = colorPicker.value;
-                startCell = cell; 
-            });
-
-            // Подія подвійного кліка
-            cell.addEventListener('dblclick', () => {
-                if (startCell) {
-                    const startRow = startCell.parentNode.rowIndex;
-                    const startCol = startCell.cellIndex;
-
-                    for (let r = startRow; r < 6; r++) {
-                        for (let c = startCol; c < 6; c++) {
-                            table.rows[r].cells[c].style.backgroundColor = colorPicker.value;
-                        }
-                    }
-                }
-            });
-        }
-    }
-
-    // Функція для генерації випадкового кольору
-    function getRandomColor() {
-        const letters = '0123456789ABCDEF';
-        let color = '#';
-        for (let i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
-    }
+document.getElementById('fetch-user').addEventListener('click', function() {
+    fetch('https://randomuser.me/api')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const user = data.results[0];
+            const userInfo = `
+                <img src="${user.picture.large}" alt="User Picture">
+                <h2>${user.name.first} ${user.name.last}</h2>
+                <p>Місто: ${user.location.city}</p>
+                <p>Країна: ${user.location.country}</p>
+                <p>Поштовий індекс: ${user.location.postcode}</p>
+            `;
+            document.getElementById('user-info').innerHTML = userInfo;
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
 });
