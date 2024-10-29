@@ -1,60 +1,51 @@
-function validateForm() {
-    // Отримуємо значення полів форми
-    const pib = document.getElementById('pib');
-    const variant = document.getElementById('variant');
-    const group = document.getElementById('group');
-    const phone = document.getElementById('phone');
-    const idCard = document.getElementById('idCard');
+document.addEventListener('DOMContentLoaded', () => {
+    const table = document.getElementById('myTable');
+    const colorPicker = document.getElementById('colorPicker');
+    let startCell = null;
 
-    // Регулярні вирази для перевірки
-    const pibPattern = /^[А-ЯІЇЄҐ][а-яіїєґ]{1,6} [А-ЯІЇЄҐ]\.[А-ЯІЇЄҐ]\.$/; // ПІБ: ТТТТТТ Т.Т.
-    const variantPattern = /^\d{2}$/; // Варіант: ЧЧ
-    const groupPattern = /^[А-ЯІЇЄҐ]{2}-\d{2}$/; // Група: ТТ-ЧЧ
-    const phonePattern = /^\(\d{3}\)-\d{3}-\d{2}-\d{2}$/; // Телефон: (ЧЧЧ)-ЧЧЧ-ЧЧ-ЧЧ
-    const idCardPattern = /^[А-ЯІЇЄҐ]{2} №\d{6}$/; // ID-card: ТТ №ЧЧЧЧЧЧ
+    // Створення таблиці 6x6
+    for (let i = 0; i < 6; i++) {
+        const row = table.insertRow();
+        for (let j = 0; j < 6; j++) {
+            const cell = row.insertCell();
+            cell.textContent = i * 6 + j + 1;
 
-    // Скидаємо стилі помилок
-    pib.classList.remove("error");
-    variant.classList.remove("error");
-    group.classList.remove("error");
-    phone.classList.remove("error");
-    idCard.classList.remove("error");
+            // Подія наведення
+            cell.addEventListener('mouseenter', () => {
+                if (cell.textContent == 46) { // Заміна 46 на ваш варіант
+                    cell.style.backgroundColor = getRandomColor();
+                }
+            });
 
-    let isValid = true;
+            // Подія кліка
+            cell.addEventListener('click', () => {
+                cell.style.backgroundColor = colorPicker.value;
+                startCell = cell; // Запам'ятовуємо вибрану клітинку
+            });
 
-    // Перевірка кожного поля
-    if (!pibPattern.test(pib.value)) {
-        pib.classList.add("error");
-        isValid = false;
-    }
-    if (!variantPattern.test(variant.value)) {
-        variant.classList.add("error");
-        isValid = false;
-    }
-    if (!groupPattern.test(group.value)) {
-        group.classList.add("error");
-        isValid = false;
-    }
-    if (!phonePattern.test(phone.value)) {
-        phone.classList.add("error");
-        isValid = false;
-    }
-    if (!idCardPattern.test(idCard.value)) {
-        idCard.classList.add("error");
-        isValid = false;
+            // Подія подвійного кліка
+            cell.addEventListener('dblclick', () => {
+                if (startCell) {
+                    const startRow = startCell.parentNode.rowIndex;
+                    const startCol = startCell.cellIndex;
+
+                    for (let r = startRow; r < 6; r++) {
+                        for (let c = startCol; c < 6; c++) {
+                            table.rows[r].cells[c].style.backgroundColor = colorPicker.value;
+                        }
+                    }
+                }
+            });
+        }
     }
 
-    // Виведення результатів
-    if (isValid) {
-        const result = `
-            ПІБ: ${pib.value}\n
-            Варіант: ${variant.value}\n
-            Група: ${group.value}\n
-            Телефон: ${phone.value}\n
-            ID-card: ${idCard.value}
-        `;
-        alert("Введена інформація:\n" + result);
-    } else {
-        alert("Будь ласка, перевірте правильність введених даних.");
+    // Функція для генерації випадкового кольору
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
     }
-}
+});

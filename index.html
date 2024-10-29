@@ -1,36 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Форма перевірки даних</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <title>Таблиця 6x6</title>
 </head>
 <body>
-    <h2>Форма перевірки даних</h2>
-    <form id="dataForm">
-        <label for="pib">ПІБ (ТТТТТТ Т.Т.):</label>
-        <input type="text" id="pib" name="pib" required>
-        <br>
 
-        <label for="variant">Варіант (ЧЧ):</label>
-        <input type="text" id="variant" name="variant" required>
-        <br>
+    <table id="myTable"></table>
+    <input type="color" id="colorPicker" value="#ff0000">
 
-        <label for="group">Група (ТТ-ЧЧ):</label>
-        <input type="text" id="group" name="group" required>
-        <br>
-
-        <label for="phone">Телефон ((ЧЧЧ)-ЧЧЧ-ЧЧ-ЧЧ):</label>
-        <input type="text" id="phone" name="phone" required>
-        <br>
-
-        <label for="idCard">ID-card (ТТ №ЧЧЧЧЧЧ):</label>
-        <input type="text" id="idCard" name="idCard" required>
-        <br>
-
-        <button type="button" onclick="validateForm()">Відправити</button>
-    </form>
 </body>
 </html>
